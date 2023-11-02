@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- icon image -->
+    <link rel="icon" type="image/x-icon"
+        href="https://catalog.tabaqat.net/assets/67d731f5-265e-4cc9-8155-072c7d2a9e33.png" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <!-- tailwindcss  cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- remix icon -->
+    <link href="https://unpkg.com/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- leaflet cdn -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.EasyButton/2.4.0/easy-button.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+    <script
+        src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.EasyButton/2.4.0/easy-button.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+
+
+    <script>
+        // tailwind theme over write
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mainGreen: "#259448",
+                        coffee: "#a29365",
+                        petrol: "#34817b",
+                        lightGrey: "#efeee5",
+                        offWhite: "#fbf7eb",
+                        orange: "#f3a220",
+                    },
+                    height: {
+                        "40vh": "40vh",
+                        "70vh": "70vh",
+                    },
+                    fontSize: {
+                        "2rem": "2rem",
+                    },
+                    backgroundSize: { fill: "100% 100%" },
+                },
+            },
+        };
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    <!-- other CSS links here -->
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='app_style.css')}}" />
+
+    <title>تنمية الغطاء النباتي ومكافحة التصحر</title>
+    <style>
+        body {
+            min-height: 170vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+        }
+
+        footer {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-offWhite">
+    <nav class="shadow-lg border-gray-200 bg-gradient-to-r from-petrol to-mainGreen sticky w-full p-0">
+        <!-- Navigation content -->
+        <div class="mx-auto container mx-auto px-5 md:px-6 py-2">
+            <img src="https://catalog.tabaqat.net/assets/fae1177c-2a91-42b5-8184-048897fbb475.png" alt="Logo"
+                class="h-8 md:h-10" />
+        </div>
+    </nav>
+
+    <div class="bg-[url('https://catalog.tabaqat.net/assets/8aa0afa7-f6a0-4893-9a78-079335805514.jpg')] bg-cover lg:bg-fill bg-no-repeat bg-center lg:bg-bottom relative">
+        <div class="container mx-auto px-5 md:px-6 h-40vh text-white p-6 flex items-center justify-center md:justify-start">
+            <h1 class="text-center md:text-right max-w-4xl font-semibold md:leading-relaxed text-2xl md:text-3xl shadow-lg">
+                متابعة أعمال رفع 250 موقع بالمركز الوطني لتنمية الغطاء النباتي ومكافحة التصحر
+            </h1>
+        </div>
+    </div>
+    <header>
+        <!-- Header content -->
+        <div>
+            <a href="/app_1/" class='nav-bar-text-link'>الصفحة الأولى</a>
+            <a href="/app_2/" class='nav-bar-text-link'>الصفحة الثانية</a>
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <section class="container mx-auto px-5 md:px-6 py-4">
+            {% block content %} {% endblock %}
+        </section>
+    </div>
+
+    <footer class="p-5 xl:p-1 m-0 bg-gradient-to-r from-mainGreen to-petrol">
+        <!-- Footer content -->
+        <div class="container mx-auto px-5 md:px-6">
+            <div class="text-white">
+                <aside class="xl:flex items-center justify-between">
+                    <!-- logo -->
+                    <img class="h-10 w-auto max-w-full"
+                        src="https://catalog.tabaqat.net/assets/fae1177c-2a91-42b5-8184-048897fbb475.png" alt="Logo" />
+
+                    <p class="text-center p-5">
+                        جميع الحقوق محفوظة للمركز الوطني لتنمية الغطاء النباتي © 2023
+                    </p>
+                </aside>
+            </div>
+        </div>
+    </footer>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    {% block scripts %} {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section>
+        <section class="py-6 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ">
+
+            <!-- card 1 -->
+            <div class="bg-white rounded-lg shadow-lg py-8 px-5">
+                <p class="text-mainGreen text-md">اجمالى ما تم طلبه</p>
+                
+                {% if count_number_sites > 0 %}
+                    <h4 class="text-2xl font-bold mx-auto mt-3 whitespace-nowrap truncate overflow-hidden text-overflow-ellipsis">
+                        {{ count_number_sites }}
+                    </h4>
+                {% else %}
+                    <p class="text-gray-500 mt-3 text-xl font-thin">غير متوفر</p>
+                {% endif %}
+            </div>
+
+            <!-- card 2 -->
+            <div class="bg-white rounded-lg shadow-lg py-8 px-5">
+                <p class="text-mainGreen text-md">اجمالى ما جار العمل عليه</p>
+
+                {% if count_working_on_it > 0 %}
+                    <h4 class="text-2xl font-bold mx-auto mt-3 whitespace-nowrap truncate overflow-hidden text-overflow-ellipsis">
+                        {{ count_working_on_it }}
+                    </h4>
+                {% else %}
+                    <p class="text-gray-500 mt-3 text-xl font-thin">غير متوفر</p>
+                {% endif %}
+            </div>
+
+              <!-- card 3 -->
+            <div class=" bg-white rounded-lg shadow-lg py-8 px-5">
+                <p class="text-mainGreen text-md"> اجمالى تحقق الجودة  </p> 
+                     
+                {% if count_quality_control>0 %}
+            
+                    <h4 class="text-2xl font-bold mx-auto mt-3 whitespace-nowrap truncate overflow-hidden text-overflow-ellipsis">
+                        {{count_quality_control}}
+                    </h4>
+            
+                {% else %}
+                <p class="text-gray-500 mt-3  text-xl font-thin">غير متوفر</p>
+                {% endif %}
+            
+            </div>
+
+              <!-- card 4 -->
+            <div class=" bg-white rounded-lg shadow-lg py-8 px-5">
+          
+                <p class="text-mainGreen text-md"> اجمالى المواقع المتوقفة  </p>
+            
+                {% if count_On_Hold>0 %}
+            
+                    <h4 class="text-2xl font-bold mx-auto mt-3 whitespace-nowrap truncate overflow-hidden text-overflow-ellipsis">
+                        {{count_On_Hold}}
+                    </h4>
+            
+                {% else %}
+                <p class="text-gray-500 mt-3  text-xl font-thin">غير متوفر</p>
+                {% endif %}
+            
+            </div>
+              <!-- card 5 -->
+            <div class=" bg-white rounded-lg shadow-lg py-8 px-5">
+          
+                <p class="text-mainGreen text-md"> اجمالى المواقع المعتمدة  </p>
+            
+                {% if count_accepted >0 %}
+            
+                <h4 class="text-2xl font-bold mx-auto mt-3 whitespace-nowrap truncate overflow-hidden text-overflow-ellipsis">
+                    {{count_accepted}}
+                </h4>
+            
+                {% else %}
+                <p class="text-gray-500 mt-3  text-xl font-thin">غير متوفر</p>
+                {% endif %}
+            
+            </div>      
+          </section>
+
+        
+            <div class="bg-white rounded-lg shadow-lg col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-5">
+                <div id="bar-chart">
+                    {{ bar_chart | safe }}
+                </div>
+            </div>
+        
+        </div>
+        
+        
+    </section>
+    
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdn.plot.ly/dash/dash-latest.min.js"></script>
+
+
+{% endblock %}

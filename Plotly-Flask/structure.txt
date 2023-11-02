@@ -1,0 +1,43 @@
+/Flask-Dash-App-Factory-Template // The main project folder.
+├── /main_app //The main Flask application package.
+│   ├── app_1 //This sub-package contains components specific to a part of your application.
+│             └── data
+│                    └── data.py
+│              └── callback.py //This file likely contains callback functions specific to app_1.
+│              └── layout.py //This file likely contains the layout configuration for the components in app_1.
+│   ├── app_2 //This sub-package contains components specific to a part of your application.
+│               └── callback.py //This file likely contains callback functions specific to app_2.
+│               └── layout.py  //This file likely contains the layout configuration for the components in app_2.
+│   ├──static  //stores static files like CSS ,JS and imagess
+│                └── appstyle.css
+│   ├── templete //This directory contains HTML templates used by Flask for rendering web pages.
+│                 └── base.html //The base template that might contain the common structure for all your web pages.
+│                 └── dash.html // A specific template for rendering Dash components.
+│                 └── index.html //The main HTML template for your application.
+│    ├── init.py // file is the entry point for your Flask application, where you create and configure the Flask server, register Dash applications, and other extensions
+│    ├── routes.py //This file contains the route definitions and URL handling logic for your Flask application.
+├──.gitignore
+├──app.py //The main entry point of your Flask-Dash application .This is where you create the Flask application object and set up routes and Dash components.
+├── config.py //Configuration file for Gunicorn, a production-ready WSGI server.
+├── gunicorn.conf.py
+├── README.md
+├── requirements.txt
+
+--------------------------------------------------------------------------------------
+
+Execution and how the Flask-Dash application works:
+ File Execution:
+    1-app.py //The main entry point of your Flask-Dash application.
+    2-main_app/__init__.py //Entry point for your Flask application, where Flask server and Dash applications are configured.
+    3-main_app/routes.py  //Loaded when __init__.py is executed.
+    4-main_app/app_1/layout.py and main_app/app_2/layout.py //Loaded when __init__.py is executed.
+    5-main_app/app_1/callback.py and main_app/app_2/callback.py //Loaded when __init__.py is executed.
+    6-base.html ,dash.html,index.html //Loaded when routes are accessed and templates are rendered.
+    7-data.py
+    8-appstyle.css //Loaded when templates are rendered and styles are applied.
+    9-config.py
+ Application Workflow:
+    1-Initialization(app.py,__init__.py,routes.py )
+    2-Accessing Routes
+    3-Rendering Templates (base.html, dash.html, index.html ,appstyle.css)
+    4-Interactivity (callback.py ,data.py)
